@@ -1,2 +1,5 @@
 import "./style.css";
-console.log("Hello TypeScript!");
+
+import { fetchWeather } from "./weather-data.ts";
+
+fetchWeather("London");
