@@ -1,2 +1,3 @@
 # Weather-app
-Creating a weather application with TypeScript.
+
+Creating a weather application with TypeScript 🌤️.
