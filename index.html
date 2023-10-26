@@ -7,7 +7,79 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <main class="main">
+        <header class="header">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="Ciudad"
+            autocomplete="off"
+          />
+          <div class="search-icon-container" id="search">
+            <svg
+              class="search-icon"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M11.35 6.675a4.675 4.675 0 1 1-9.35 0 4.675 4.675 0 0 1 9.35 0Zm-.715 5.374a6.675 6.675 0 1 1 1.414-1.414l3.658 3.658a1 1 0 0 1-1.414 1.414l-3.658-3.658Z"
+              ></path>
+            </svg>
+          </div>
+        </header>
+
+        <section class="location-info" id="location">
+          <h2 class="city-name">Bogotá</h2>
+          <p class="country">Colombia</p>
+          <p class="temperature">10°C</p>
+        </section>
+
+        <section class="coordinates" id="coordinates">
+          <div class="humidity-container">
+            <div class="humidity-content">
+              <p class="humidity">108</p>
+              <img
+                class="humidity-icon"
+                src="/icons/humidity.svg"
+                alt="Icono Humedad"
+              />
+            </div>
+            <strong>Humedad</strong>
+          </div>
+
+          <div class="latitude-container">
+            <p class="latitude">103°</p>
+            <strong>Latitud</strong>
+          </div>
+        </section>
+
+        <hr />
+
+        <section class="weather-info" id="weather">
+          <div class="weather-condition">
+            <img
+              class="weather-icon"
+              src="//cdn.weatherapi.com/weather/64x64/night/116.png"
+              alt="Icono"
+            />
+            <p class="weather-description">Parcialmente Nublado</p>
+          </div>
+
+          <div class="wind">
+            <img class="wind-icon" src="/icons/wind.svg" alt="Icono viento" />
+            <div class="wind-info">
+              <p class="wind-speed">Viento</p>
+              <strong class="wind-km">456 km/h</strong>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
