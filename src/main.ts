@@ -21,6 +21,9 @@ const weatherSearch = async (city: string) => {
     renderLocationElement(locationElement, weatherData);
     renderCoordinatesElement(coordinatesElement, weatherData);
     renderWeatherInfo(weatherInfoContainer, weatherData);
+
+    weatherApp.classList.remove("hidden");
+    errorContainer.innerHTML = "";
   } catch (error) {
     handleError(weatherApp, errorContainer, city);
   }
