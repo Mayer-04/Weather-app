@@ -191,3 +191,7 @@ body {
   color: #b23636;
   font-style: italic;
 }
+
+.hidden {
+  display: none;
+}

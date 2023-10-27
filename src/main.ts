@@ -12,24 +12,25 @@ const coordinatesElement = document.getElementById(
   "coordinates"
 ) as HTMLElement;
 const weatherInfoContainer = document.getElementById("weather") as HTMLElement;
+const weatherApp = document.getElementById("weather-app") as HTMLDivElement;
 const errorContainer = document.getElementById("message-error") as HTMLElement;
 
-const searchWeather = async (city: string) => {
+const weatherSearch = async (city: string) => {
   try {
     const weatherData = await fetchWeatherData(city);
     renderLocationElement(locationElement, weatherData);
     renderCoordinatesElement(coordinatesElement, weatherData);
     renderWeatherInfo(weatherInfoContainer, weatherData);
   } catch (error) {
-    handleError(errorContainer, city);
+    handleError(weatherApp, errorContainer, city);
   }
 };
 
 const loadDefaultWeather = async () => {
-  await searchWeather("Bogota");
+  await weatherSearch("Bogota");
 };
 
-const onSearchButtonClick = async () => {
+const handleWeatherSearch = async () => {
   const inputValue = searchInput.value.trim().toLowerCase();
 
   if (!inputValue) {
@@ -37,10 +38,10 @@ const onSearchButtonClick = async () => {
     return;
   }
 
-  await searchWeather(inputValue);
+  await weatherSearch(inputValue);
 
   searchInput.value = "";
 };
 
 window.addEventListener("load", loadDefaultWeather);
-searchButton.addEventListener("click", onSearchButtonClick);
+searchButton.addEventListener("click", handleWeatherSearch);

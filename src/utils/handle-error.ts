@@ -1,4 +1,10 @@
-export const handleError = (errorContainer: HTMLElement, city: string) => {
+export const handleError = (
+  weatherApp: HTMLDivElement,
+  errorContainer: HTMLElement,
+  city: string
+) => {
+  weatherApp.classList.add("hidden");
+
   errorContainer.innerHTML = `
       <figure class="container-error">
         <img class="error-image" src="/is-fine.gif" alt="Error-404"/>
