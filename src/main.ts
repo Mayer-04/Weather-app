@@ -1,25 +1,29 @@
 import "./style.css";
-import { fetchWeather } from "./weather-data.ts";
-import { renderLocation } from "./render/render-location.ts";
-import { renderCoordination } from "./render/render-coordinates.ts";
-import { renderWeather } from "./render/render-weather.ts";
+import { fetchWeatherData } from "./weather-data.ts";
+import { renderLocationElement } from "./render/render-location.ts";
+import { renderCoordinatesElement } from "./render/render-coordinates.ts";
+import { renderWeatherInfo } from "./render/render-weather.ts";
 import { handleError } from "./utils/handle-error.ts";
 
-const input = document.querySelector(".search-input") as HTMLInputElement;
-const search = document.getElementById("search") as HTMLDivElement;
-const weatherApp = document.getElementById("weather-app") as HTMLElement;
+const searchInput = document.querySelector(".search-input") as HTMLInputElement;
+const searchButton = document.getElementById("search") as HTMLDivElement;
+const weatherAppContainer = document.getElementById(
+  "weather-app"
+) as HTMLElement;
 const locationElement = document.getElementById("location") as HTMLElement;
-const coordinates = document.getElementById("coordinates") as HTMLElement;
-const weatherContainer = document.getElementById("weather") as HTMLElement;
+const coordinatesElement = document.getElementById(
+  "coordinates"
+) as HTMLElement;
+const weatherInfoContainer = document.getElementById("weather") as HTMLElement;
 
 const searchWeather = async (city: string) => {
   try {
-    const weather = await fetchWeather(city);
-    renderLocation(locationElement, weather);
-    renderCoordination(coordinates, weather);
-    renderWeather(weatherContainer, weather);
+    const weatherData = await fetchWeatherData(city);
+    renderLocationElement(locationElement, weatherData);
+    renderCoordinatesElement(coordinatesElement, weatherData);
+    renderWeatherInfo(weatherInfoContainer, weatherData);
   } catch (error) {
-    handleError(weatherApp, city);
+    handleError(weatherAppContainer, city);
   }
 };
 
@@ -27,10 +31,8 @@ const loadDefaultWeather = async () => {
   await searchWeather("Bogota");
 };
 
-const onSearchClick = async () => {
-  const inputValue = input.value.toLowerCase();
-
-  input.value = "";
+const onSearchButtonClick = async () => {
+  const inputValue = searchInput.value.trim().toLowerCase();
 
   if (!inputValue) {
     await loadDefaultWeather();
@@ -38,7 +40,9 @@ const onSearchClick = async () => {
   }
 
   await searchWeather(inputValue);
+
+  searchInput.value = "";
 };
 
 window.addEventListener("load", loadDefaultWeather);
-search.addEventListener("click", onSearchClick);
+searchButton.addEventListener("click", onSearchButtonClick);

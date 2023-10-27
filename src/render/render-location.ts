@@ -1,6 +1,6 @@
 import { RenderedWeather } from "../types/rendered-weather.ts";
 
-export const renderLocation = (
+export const renderLocationElement = (
   location: HTMLElement,
   weather: RenderedWeather
 ) => {
