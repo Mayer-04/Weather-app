@@ -1,5 +1,5 @@
-export const handleError = (weatherApp: HTMLElement, city: string) => {
-  weatherApp.innerHTML = `
+export const handleError = (errorContainer: HTMLElement, city: string) => {
+  errorContainer.innerHTML = `
       <figure class="container-error">
         <img class="error-image" src="/is-fine.gif" alt="Error-404"/>
       </figure>
