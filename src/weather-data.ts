@@ -1,7 +1,7 @@
 import { Weather } from "./types/weather-types.ts";
 import { options } from "./config/options.ts";
 
-export const fetchWeather = async (city = "Bogota") => {
+export const fetchWeather = async (city: string) => {
   const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${city}`;
   try {
     const response = await fetch(url, options);
