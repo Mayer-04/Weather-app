@@ -7,14 +7,12 @@ import { handleError } from "./utils/handle-error.ts";
 
 const searchInput = document.querySelector(".search-input") as HTMLInputElement;
 const searchButton = document.getElementById("search") as HTMLDivElement;
-const weatherAppContainer = document.getElementById(
-  "weather-app"
-) as HTMLElement;
 const locationElement = document.getElementById("location") as HTMLElement;
 const coordinatesElement = document.getElementById(
   "coordinates"
 ) as HTMLElement;
 const weatherInfoContainer = document.getElementById("weather") as HTMLElement;
+const errorContainer = document.getElementById("message-error") as HTMLElement;
 
 const searchWeather = async (city: string) => {
   try {
@@ -23,7 +21,7 @@ const searchWeather = async (city: string) => {
     renderCoordinatesElement(coordinatesElement, weatherData);
     renderWeatherInfo(weatherInfoContainer, weatherData);
   } catch (error) {
-    handleError(weatherAppContainer, city);
+    handleError(errorContainer, city);
   }
 };
 
