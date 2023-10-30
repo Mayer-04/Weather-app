@@ -18,7 +18,7 @@ export const renderCoordinatesElement = (
           </div>
 
           <div class="latitude-container">
-            <p class="latitude">${weather.lat}°</p>
+            <p class="latitude">${weather.latitude}°</p>
             <strong>Latitud</strong>
           </div>
     `;

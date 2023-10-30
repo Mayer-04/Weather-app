@@ -13,17 +13,18 @@ export const getWeatherData = async (city: string) => {
     const { location } = result;
     const { current } = result;
     const { name, country, lat } = location;
-    const { condition, temp_c, humidity, wind_kph } = current;
+    const { condition, temp_c, humidity, wind_kph, is_day } = current;
     const { text, icon } = condition;
 
     return {
-      name,
+      cityName: name,
       country,
-      lat,
+      latitude: lat,
       temp_c,
       humidity,
       wind_kph,
-      text,
+      is_day,
+      weatherStatus: text,
       icon,
     };
   } catch (error) {

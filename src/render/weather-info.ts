@@ -9,9 +9,9 @@ export const renderWeatherInfo = (
             <img
               class="weather-icon"
               src="${weather.icon}"
-              alt="${weather.text}"
+              alt="${weather.weatherStatus}"
             />
-            <p class="weather-description">${weather.text}</p>
+            <p class="weather-description">${weather.weatherStatus}</p>
         </div>
 
         <div class="wind">

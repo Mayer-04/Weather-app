@@ -1,10 +1,11 @@
 export type WeatherData = {
-  name: string;
+  cityName: string;
   country: string;
-  lat: number;
+  latitude: number;
   temp_c: number;
   humidity: number;
   wind_kph: number;
-  text: string;
+  is_day: number;
+  weatherStatus: string;
   icon: string;
 };
