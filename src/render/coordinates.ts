@@ -1,8 +1,8 @@
-import { RenderedWeather } from "../types/rendered-weather.ts";
+import { WeatherData } from "../types/weather-data.ts";
 
 export const renderCoordinatesElement = (
   coordinates: HTMLElement,
-  weather: RenderedWeather
+  weather: WeatherData
 ) => {
   coordinates.innerHTML = `
     <div class="humidity-container">

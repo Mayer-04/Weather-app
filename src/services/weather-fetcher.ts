@@ -1,12 +1,12 @@
-import { Weather } from "./types/weather-types.ts";
-import { options } from "./config/options.ts";
+import { Weather } from "../types/weather-types.ts";
+import { options } from "../config/options.ts";
 
-export const fetchWeatherData = async (city: string) => {
+export const getWeatherData = async (city: string) => {
   const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${city}`;
   try {
     const response = await fetch(url, options);
     if (!response.ok) {
-      throw new Error(`ERROR HTTP: ${response.status}`);
+      throw new Error(`HTTP status: ${response.status}`);
     }
     const result: Weather = await response.json();
 
@@ -27,6 +27,6 @@ export const fetchWeatherData = async (city: string) => {
       icon,
     };
   } catch (error) {
-    throw new Error(`ERROR: ${error}`);
+    throw new Error(`An error occurred while processing the request: ${error}`);
   }
 };

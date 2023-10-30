@@ -1,8 +1,8 @@
-import { RenderedWeather } from "../types/rendered-weather.ts";
+import { WeatherData } from "../types/weather-data.ts";
 
 export const renderWeatherInfo = (
   weatherContainer: HTMLElement,
-  weather: RenderedWeather
+  weather: WeatherData
 ) => {
   weatherContainer.innerHTML = `
         <div class="weather-condition">

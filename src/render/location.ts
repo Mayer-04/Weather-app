@@ -1,8 +1,8 @@
-import { RenderedWeather } from "../types/rendered-weather.ts";
+import { WeatherData } from "../types/weather-data.ts";
 
 export const renderLocationElement = (
   location: HTMLElement,
-  weather: RenderedWeather
+  weather: WeatherData
 ) => {
   location.innerHTML = `
         <h2 class="city-name">${weather.name}</h2>

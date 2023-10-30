@@ -1,8 +1,8 @@
 import "./style.css";
-import { fetchWeatherData } from "./weather-data.ts";
-import { renderLocationElement } from "./render/render-location.ts";
-import { renderCoordinatesElement } from "./render/render-coordinates.ts";
-import { renderWeatherInfo } from "./render/render-weather.ts";
+import { getWeatherData } from "./services/weather-fetcher.ts";
+import { renderLocationElement } from "./render/location.ts";
+import { renderCoordinatesElement } from "./render/coordinates.ts";
+import { renderWeatherInfo } from "./render/weather-info.ts";
 import { handleError } from "./utils/handle-error.ts";
 
 const searchInput = document.querySelector(".search-input") as HTMLInputElement;
@@ -17,7 +17,7 @@ const errorContainer = document.getElementById("message-error") as HTMLElement;
 
 const weatherSearch = async (city: string) => {
   try {
-    const weatherData = await fetchWeatherData(city);
+    const weatherData = await getWeatherData(city);
     renderLocationElement(locationElement, weatherData);
     renderCoordinatesElement(coordinatesElement, weatherData);
     renderWeatherInfo(weatherInfoContainer, weatherData);

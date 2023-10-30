@@ -1,4 +1,4 @@
-export type RenderedWeather = {
+export type WeatherData = {
   name: string;
   country: string;
   lat: number;
