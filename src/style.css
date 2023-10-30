@@ -119,14 +119,13 @@ body {
 
 .coordinates {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 10px;
   text-align: center;
   margin-bottom: 10px;
   background-color: var(--color-two);
   border-radius: 10px;
-  padding: 5px 0;
+  padding: 7px 0;
 }
 
 .humidity-content {
