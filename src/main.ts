@@ -4,6 +4,7 @@ import { renderLocationElement } from "./render/location.ts";
 import { renderCoordinatesElement } from "./render/coordinates.ts";
 import { renderWeatherInfo } from "./render/weather-info.ts";
 import { handleError } from "./utils/handle-error.ts";
+import { changeColor } from "./utils/change-color.ts";
 import {
   searchInput,
   searchButton,
@@ -23,6 +24,8 @@ const weatherSearch = async (city: string) => {
 
     weatherApp.classList.remove("hidden");
     errorContainer.innerHTML = "";
+
+    changeColor(weatherData);
   } catch (error) {
     handleError(weatherApp, errorContainer, city);
   }
