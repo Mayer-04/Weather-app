@@ -4,16 +4,15 @@ import { renderLocationElement } from "./render/location.ts";
 import { renderCoordinatesElement } from "./render/coordinates.ts";
 import { renderWeatherInfo } from "./render/weather-info.ts";
 import { handleError } from "./utils/handle-error.ts";
-
-const searchInput = document.querySelector(".search-input") as HTMLInputElement;
-const searchButton = document.getElementById("search") as HTMLDivElement;
-const locationElement = document.getElementById("location") as HTMLElement;
-const coordinatesElement = document.getElementById(
-  "coordinates"
-) as HTMLElement;
-const weatherInfoContainer = document.getElementById("weather") as HTMLElement;
-const weatherApp = document.getElementById("weather-app") as HTMLDivElement;
-const errorContainer = document.getElementById("message-error") as HTMLElement;
+import {
+  searchInput,
+  searchButton,
+  locationElement,
+  coordinatesElement,
+  weatherInfoContainer,
+  weatherApp,
+  errorContainer,
+} from "./utils/dom-elements.ts";
 
 const weatherSearch = async (city: string) => {
   try {
