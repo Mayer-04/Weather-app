@@ -47,6 +47,7 @@
   --color-two: rgb(186, 230, 253);
   --color-day: #f0f8ff;
   --color-night: #333162;
+  --size: 0.625rem;
 }
 
 body {
@@ -81,11 +82,13 @@ body {
 }
 
 .search-icon-container {
+  --search-size: 1.875rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1.875rem;
-  height: 1.875rem;
+  width: var(--search-size);
+  height: var(--search-size);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -122,8 +125,8 @@ body {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  margin-bottom: 10px;
-  border-radius: 10px;
+  margin-bottom: var(--size);
+  border-radius: var(--size);
   padding: 7px 0;
 }
 
@@ -139,9 +142,9 @@ body {
 }
 
 .weather-info {
-  margin-top: 10px;
+  margin-top: var(--size);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: var(--size);
 }
 
 .weather-condition {
