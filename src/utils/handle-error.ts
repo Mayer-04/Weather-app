@@ -1,8 +1,12 @@
-export const handleError = (
-  weatherApp: HTMLDivElement,
-  errorContainer: HTMLElement,
-  city: string
-) => {
+interface Options {
+  weatherApp: HTMLDivElement;
+  errorContainer: HTMLElement;
+  city: string;
+}
+
+export const handleError = (options: Options) => {
+  const { weatherApp, errorContainer, city } = options;
+
   weatherApp.classList.add("hidden");
 
   errorContainer.innerHTML = `

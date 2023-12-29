@@ -27,7 +27,7 @@ const weatherSearch = async (city: string) => {
 
     changeColor(weatherData);
   } catch (error) {
-    handleError(weatherApp, errorContainer, city);
+    handleError({ weatherApp, errorContainer, city });
   }
 };
 
