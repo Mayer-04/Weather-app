@@ -28,6 +28,8 @@ export const getWeatherData = async (city: string) => {
       icon,
     };
   } catch (error) {
-    throw new Error(`An error occurred while processing the request: ${error}`);
+    throw new Error("An error occurred while processing the request", {
+      cause: error,
+    });
   }
 };
