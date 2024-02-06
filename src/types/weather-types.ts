@@ -1,9 +1,9 @@
-export type Weather = {
+export interface Weather {
   location: Location;
   current: Current;
-};
+}
 
-export type Location = {
+export interface Location {
   name: string;
   region: string;
   country: string;
@@ -12,9 +12,9 @@ export type Location = {
   tz_id: string;
   localtime_epoch: number;
   localtime: string;
-};
+}
 
-export type Current = {
+export interface Current {
   last_updated_epoch: number;
   last_updated: string;
   temp_c: number;
@@ -38,10 +38,10 @@ export type Current = {
   uv: number;
   gust_mph: number;
   gust_kph: number;
-};
+}
 
-export type Condition = {
+export interface Condition {
   text: string;
   icon: string;
   code: number;
-};
+}

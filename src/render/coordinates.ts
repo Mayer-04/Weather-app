@@ -1,6 +1,6 @@
 import { WeatherData } from "../types/weather-data.ts";
 
-export const renderCoordinatesElement = (
+export const renderCoordinates = (
   coordinates: HTMLElement,
   weather: WeatherData
 ) => {

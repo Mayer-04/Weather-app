@@ -1,40 +1,39 @@
 import { WeatherData } from "../types/weather-data.ts";
-import { day } from "./constant.ts";
-
-const mainElement = document.querySelector(".main") as HTMLElement;
-const weatherInfoContainer = document.getElementById("weather") as HTMLElement;
-const searchButton = document.getElementById("search") as HTMLDivElement;
-const coordinatesElement = document.getElementById(
-  "coordinates"
-) as HTMLElement;
+import { isDay, themeColors } from "./constant.ts";
+import {
+  mainElement,
+  weatherInfoContainer,
+  searchButton,
+  coordinatesElement,
+} from "./dom-elements.ts";
 
 const dayStyles = () => {
+  const { backgroundColor, textColor } = themeColors.day;
+
   mainElement.classList.add("day");
   mainElement.classList.remove("night");
-  searchButton.style.backgroundColor = "#bae6fd";
-  coordinatesElement.style.backgroundColor = "#bae6fd";
-  coordinatesElement.style.color = "#000";
-  weatherInfoContainer.style.backgroundColor = "#bae6fd";
+  searchButton.style.backgroundColor = backgroundColor;
+  coordinatesElement.style.backgroundColor = backgroundColor;
+  coordinatesElement.style.color = textColor;
+  weatherInfoContainer.style.backgroundColor = backgroundColor;
 };
 
 const nightStyles = () => {
   const humidityIcon = document.querySelector(".humidity-icon") as HTMLElement;
   const windIcon = document.querySelector(".wind-icon") as HTMLElement;
 
+  const { backgroundColor, textColor } = themeColors.night;
+
   mainElement.classList.add("night");
   mainElement.classList.remove("day");
-  searchButton.style.backgroundColor = "#4B319F";
-  coordinatesElement.style.backgroundColor = "#4B319F";
-  coordinatesElement.style.color = "#f0f8ff";
-  humidityIcon.style.fill = "#f0f8ff";
-  weatherInfoContainer.style.backgroundColor = "#4B319F";
-  windIcon.style.fill = "#f0f8ff";
+  searchButton.style.backgroundColor = backgroundColor;
+  coordinatesElement.style.backgroundColor = backgroundColor;
+  coordinatesElement.style.color = textColor;
+  humidityIcon.style.fill = textColor;
+  weatherInfoContainer.style.backgroundColor = backgroundColor;
+  windIcon.style.fill = textColor;
 };
 
 export const changeColor = (weatherData: WeatherData) => {
-  if (weatherData.is_day === day) {
-    dayStyles();
-  } else {
-    nightStyles();
-  }
+  weatherData.is_day === isDay ? dayStyles() : nightStyles();
 };

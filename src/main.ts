@@ -1,7 +1,7 @@
 import "./style.css";
 import { getWeatherData } from "./services/weather-fetcher.ts";
-import { renderLocationElement } from "./render/location.ts";
-import { renderCoordinatesElement } from "./render/coordinates.ts";
+import { renderLocation } from "./render/location.ts";
+import { renderCoordinates } from "./render/coordinates.ts";
 import { renderWeatherInfo } from "./render/weather-info.ts";
 import { handleError } from "./utils/handle-error.ts";
 import { changeColor } from "./utils/change-color.ts";
@@ -15,11 +15,11 @@ import {
   errorContainer,
 } from "./utils/dom-elements.ts";
 
-const weatherSearch = async (city: string) => {
+const searchWeather = async (city: string) => {
   try {
     const weatherData = await getWeatherData(city);
-    renderLocationElement(locationElement, weatherData);
-    renderCoordinatesElement(coordinatesElement, weatherData);
+    renderLocation(locationElement, weatherData);
+    renderCoordinates(coordinatesElement, weatherData);
     renderWeatherInfo(weatherInfoContainer, weatherData);
 
     weatherApp.classList.remove("hidden");
@@ -32,7 +32,7 @@ const weatherSearch = async (city: string) => {
 };
 
 const loadDefaultWeather = async () => {
-  await weatherSearch("Bogota");
+  await searchWeather("Bogota");
 };
 
 const handleWeatherSearch = async () => {
@@ -43,10 +43,10 @@ const handleWeatherSearch = async () => {
     return;
   }
 
-  await weatherSearch(inputValue);
+  await searchWeather(inputValue);
 
   searchInput.value = "";
 };
 
-window.addEventListener("load", loadDefaultWeather);
+window.addEventListener("DOMContentLoaded", loadDefaultWeather);
 searchButton.addEventListener("click", handleWeatherSearch);
